@@ -46,4 +46,5 @@ db.products.find({ product_material: "Soft" });
 db.products.find({ $or: [{ product_price: 492 },{ product_color: "indigo" }]});
 
 /* 10 .Delete the products which product price value are same */
-db.products.deleteMany({  product_price: { $in: db.products.distinct("product_price", {}) },});
+
+db.Product.deleteMany({ "product_price": { $eq: db.products.distinct("product_price") } })
